@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лучшие места Белокурихи — Спонсоры и партнёры</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: linear-gradient(180deg, #0a0a15 0%, #1a1a2e 50%, #0a0a15 100%);
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            min-height: 100vh;
+            padding: 40px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 16px;
+            color: #f1c40f;
+            text-shadow: 3px 3px 0 #000, 0 0 25px #f1c40f;
+            margin-bottom: 12px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .subtitle {
+            font-size: 8px;
+            color: #2ecc71;
+            text-shadow: 0 0 10px #2ecc71;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* СЕТКА СПОНСОРОВ */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            max-width: 1100px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .sponsor-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            border: 3px solid #f1c40f;
+            border-radius: 12px;
+            padding: 20px 14px;
+            text-align: center;
+            transition: all 0.25s;
+            cursor: pointer;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sponsor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(241,196,15,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .sponsor-card:hover::before { left: 100%; }
+
+        .sponsor-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: #2ecc71;
+            box-shadow: 0 12px 35px rgba(46, 204, 113, 0.5);
+        }
+
+        .sponsor-logo {
+            font-size: 38px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 12px rgba(241, 196, 15, 0.7));
+        }
+
+        .sponsor-name {
+            font-size: 10px;
+            color: #f1c40f;
+            text-shadow: 2px 2px 0 #000;
+            line-height: 1.5;
+            word-break: break-word;
+            margin-bottom: 8px;
+        }
+
+        .sponsor-desc {
+            font-size: 7px;
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .sponsor-quest {
+            font-size: 6px;
+            color: #e67e22;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            text-shadow: 0 0 6px rgba(230, 126, 34, 0.5);
+        }
+
+        .sponsor-bonus {
+            font-size: 6px;
+            color: #2ecc71;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            text-shadow: 0 0 6px rgba(46, 204, 113, 0.5);
+        }
+
+        .sponsor-shop {
+            font-size: 6px;
+            color: #9b59b6;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .sponsor-link {
+            color: #2ecc71;
+            text-decoration: none;
+            font-size: 6px;
+            margin-top: auto;
+            display: inline-block;
+            border-bottom: 1px dashed #2ecc71;
+            padding-bottom: 2px;
+        }
+
+        .sponsor-link:hover { color: #f1c40f; border-color: #f1c40f; }
+
+        /* СТИЛИ ДЛЯ РЕКЛАМНОГО БЛОКА ВАЛЬТЕРА СКОТТА */
+        .ad-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #3d2d44 100%);
+            border-color: #e74c3c;
+            grid-column: span 3;
+        }
+
+        .ad-card:hover {
+            border-color: #e74c3c;
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.5);
+        }
+
+        .ad-card .sponsor-logo {
+            font-size: 48px;
+            filter: drop-shadow(0 0 12px rgba(231, 76, 60, 0.7));
+        }
+
+        .ad-card .sponsor-name {
+            color: #e74c3c;
+            font-size: 12px;
+        }
+
+        .ad-text {
+            font-size: 7px;
+            color: #ddd;
+            margin-top: 8px;
+            line-height: 1.8;
+            text-shadow: none;
+        }
+
+        .ad-discount {
+            font-size: 7px;
+            color: #2ecc71;
+            text-shadow: 0 0 8px #2ecc71;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        /* АДАПТИВ */
+        @media (max-width: 900px) {
+            .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+            h1 { font-size: 13px; }
+            .ad-card { grid-column: span 2; }
+        }
+
+        @media (max-width: 600px) {
+            .sponsors-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 11px; }
+            .ad-card { grid-column: span 1; }
+            .sponsor-card { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🏔️ ЛУЧШИЕ МЕСТА БЕЛОКУРИХИ 🏔️</h1>
+    <div class="subtitle">✦ 10 локаций — задания, квесты, бонусы и скидки ✦</div>
+
+    <div class="sponsors-grid">
+
+        <!-- 1. САНАТОРИЙ РОССИЯ -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">🏨</div>
+            <div class="sponsor-name">САНАТОРИЙ «РОССИЯ»</div>
+            <div class="sponsor-desc">Флагман курорта. Минеральные ванны, SPA, бассейн с термальной водой.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Найди 5 источников» — собери отметки у всех бюветов и получи приз.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Скидка 15% на SPA-процедуры по промокоду «РОССИЯ-2026».</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Косметика на основе минеральной воды, фиточаи.</div>
+            <a href="http://www.sanrussia.ru" class="sponsor-link" target="_blank">sanrussia.ru →</a>
+        </div>
+
+        <!-- 2. САНАТОРИЙ КАТУНЬ -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">🌊</div>
+            <div class="sponsor-name">САНАТОРИЙ «КАТУНЬ»</div>
+            <div class="sponsor-desc">Рядом с канатной дорогой. Уникальные терренкуры и лечебные грязи.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Вековая сосна» — дойди до дерева-долгожителя и сфотографируйся.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Бесплатный терренкур с инструктором при бронировании от 7 дней.</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Лечебные грязи, травяные сборы, мёд.</div>
+            <a href="http://www.katun-san.ru" class="sponsor-link" target="_blank">katun-san.ru →</a>
+        </div>
+
+        <!-- 3. САНАТОРИЙ СИБИРЬ -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">❄️</div>
+            <div class="sponsor-name">САНАТОРИЙ «СИБИРЬ»</div>
+            <div class="sponsor-desc">Самый большой бассейн с минеральной водой на курорте.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Сибирское здоровье» — пройди 3 процедуры за день и получи бонус.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: 2-й сеанс бассейна — бесплатно (по карте гостя).</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Сибирские травы, кедровые орехи, банные принадлежности.</div>
+            <a href="https://sibir-san.ru" class="sponsor-link" target="_blank">sibir-san.ru →</a>
+        </div>
+
+        <!-- 4. ЛЕСНАЯ СКАЗКА -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">🌲</div>
+            <div class="sponsor-name">ЭКО-КУРОРТ «ЛЕСНАЯ СКАЗКА»</div>
+            <div class="sponsor-desc">Таёжная заимка в 9 км от курорта. Ресторан на берегу озера.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Тропа сказок» — найди 7 деревянных скульптур в лесу.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Скидка 10% на проживание при бронировании онлайн.</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Алтайский мёд, кедровые продукты, сувениры из бересты.</div>
+            <a href="https://zaimka-ls.ru" class="sponsor-link" target="_blank">zaimka-ls.ru →</a>
+        </div>
+
+        <!-- 5. АЛТАЙ РЕСТАРТ -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">🏔️</div>
+            <div class="sponsor-name">ОТЕЛЬ «АЛТАЙ РЕСТАРТ»</div>
+            <div class="sponsor-desc">Премиальный курорт в Белокурихе-2. Горный ландшафт, тишина.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Перезагрузка» — отключи телефон на 2 часа и пройди 3 локации.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Бесплатный завтрак при бронировании от 3 ночей.</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Авторские чаи, эко-косметика, одежда с логотипом.</div>
+            <a href="https://xn----7sbcqpldd1afreb2agf4a.xn--p1ai" class="sponsor-link" target="_blank">altay-restart.ru →</a>
+        </div>
+
+        <!-- 6. ГОРА ЦЕРКОВКА -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">🚡</div>
+            <div class="sponsor-name">ГОРА ЦЕРКОВКА</div>
+            <div class="sponsor-desc">Канатная дорога 2050 м, высота 801 м. Панорама всего Алтая.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Вершина» — поднимись наверх и найди табличку с высотой.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Детский билет — 50% при покупке семейного.</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Фото на вершине, магниты, кедровые орешки.</div>
+            <a href="https://visitaltai.info/where_visit/objects/ski-resorts/gornolyzhnyy-kompleks-yakovka/" class="sponsor-link" target="_blank">visitaltai.info →</a>
+        </div>
+
+        <!-- 7. ХРАМ ПАНТЕЛЕИМОНА -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">⛪</div>
+            <div class="sponsor-name">ХРАМ СВ. ПАНТЕЛЕИМОНА</div>
+            <div class="sponsor-desc">Пантелеимоновский источник «Глазной». Считается целебным.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Светлый путь» — посети источник и набери воды.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Бесплатная экскурсия по храму по субботам.</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Свечи, иконы, православная литература.</div>
+            <a href="https://azbyka.org" class="sponsor-link" target="_blank">azbyka.org →</a>
+        </div>
+
+        <!-- 8. МУЗЕЙ ШОКОЛАДА -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">🍫</div>
+            <div class="sponsor-name">МУЗЕЙ ШОКОЛАДА «ТИМАНИ»</div>
+            <div class="sponsor-desc">Белокуриха-2 Горная. Дегустации, шоколадные фигуры ручной работы.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Сладкий детектив» — найди 5 ингредиентов шоколада.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Бесплатная дегустация 3 видов шоколада.</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Шоколад ручной работы, ореховые пасты, какао.</div>
+            <a href="https://visitaltai.info" class="sponsor-link" target="_blank">visitaltai.info →</a>
+        </div>
+
+        <!-- 9. ЯРМАРКА ДАРЫ АЛТАЯ -->
+        <div class="sponsor-card">
+            <div class="sponsor-logo">🧺</div>
+            <div class="sponsor-name">ЯРМАРКА «ДАРЫ АЛТАЯ»</div>
+            <div class="sponsor-desc">Мясо марала, прополис, сувениры из бересты, домашняя колбаса.</div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Алтайский гурман» — попробуй 5 продуктов и получи скидку.</div>
+            <div class="sponsor-bonus">🎁 БОНУС: Скидка 5% на всю продукцию по карте гостя.</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Мясо марала, мёд, прополис, берестяные туеса.</div>
+            <a href="https://katun24.ru" class="sponsor-link" target="_blank">katun24.ru →</a>
+        </div>
+
+        <!-- 10. ВАЛЬТЕР СКОТТ И ГОРА ЯКОВКА (РЕКЛАМНЫЙ БЛОК) -->
+        <div class="sponsor-card ad-card">
+            <div class="sponsor-logo">🏴󠁧󠁢󠁳󠁣󠁴󠁿⛷️</div>
+            <div class="sponsor-name">ВАЛЬТЕР СКОТТ &amp; ГОРА ЯКОВКА</div>
+            <div class="ad-text">
+                Шотландский чародей и сибирский склон.<br>
+                Исторический роман встречает алтайский фрирайд.<br>
+                Трассы 1,1 км, бугельный подъёмник, прокат снаряжения.
+            </div>
+            <div class="sponsor-quest">🎯 КВЕСТ: «Рыцарь на склоне» — прокатись по трассе и найди 3 флага.</div>
+            <div class="ad-discount">🎁 Посетителям — скидки на проживание и прокат!</div>
+            <div class="sponsor-shop">🛍️ КУПИТЬ: Книги Вальтера Скотта, горнолыжные аксессуары.</div>
+            <a href="https://visitaltai.info/where_visit/objects/ski-resorts/gornolyzhnyy-kompleks-yakovka/" class="ad-link" target="_blank">Узнать больше →</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
